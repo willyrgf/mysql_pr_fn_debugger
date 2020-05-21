@@ -16,8 +16,27 @@ create index idx_created_at on debug.debug(created_at)//
 drop procedure if exists debug._log//
 create procedure debug._log(in proc_id varchar(32), in debug_text text)
 begin
-  insert into debug.debug (id,debug_output)
-  values (p_proc_id,p_debug_info);
+    insert into 
+        debug.debug (
+            proc_id,
+            debug_text
+        )
+    values (
+        proc_id,
+        debug_text
+    );
+end//
+
+drop procedure if exists debug._xlog//
+create procedure debug._xlog(in debug_text text)
+begin
+    insert into 
+        debug.debug (
+            debug_text
+        )
+    values (
+        debug_text
+    );
 end//
 
 drop procedure if exists debug._show//
