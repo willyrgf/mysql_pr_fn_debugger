@@ -15,7 +15,7 @@ begin
     call debug._log('run_parallel', concat('cores: ', cores));
     call debug._xlog(concat('without identified, cores: ', cores));
 end;
-
+call run_parallel(8);
 ```
 
 ### Example show logs
